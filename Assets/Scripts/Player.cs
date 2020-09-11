@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class Player : MonoBehaviour
     //Speed of shots
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private GameObject laserPrefab;
-    
+    [SerializeField] private float projectileFiringPeriod = 0.1f;
+
+    private Coroutine firingCoroutine;
     //Clamp Amounts
     private float _minX;
     private float _maxX;
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Move();
         Fire();
     }
@@ -35,8 +39,22 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+           firingCoroutine = StartCoroutine(FireContinuously());
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(firingCoroutine);
+        }
+    }
+
+    IEnumerator FireContinuously()
+    {
+        while (true)
+        {
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
 

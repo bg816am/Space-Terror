@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float yPadding = .1f;
     //Speed of shots
     [SerializeField] private float projectileSpeed = 10f;
-    [SerializeField] private GameObject laserPrefab;
+    [SerializeField] private GameObject laserPrefab = null;
     [SerializeField] private float projectileFiringPeriod = 0.1f;
 
     private Coroutine firingCoroutine;

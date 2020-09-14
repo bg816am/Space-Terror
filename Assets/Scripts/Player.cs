@@ -4,10 +4,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //Configs
+    [Header("Movement Parameters")]
     [SerializeField] private float moveSpeed = 10f;
     //Limit the ship movement
     [SerializeField] private float xPadding = .1f;
     [SerializeField] private float yPadding = .1f;
+
+    [SerializeField] private int health = 200;
     //Speed of shots
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private GameObject laserPrefab = null;
@@ -80,5 +83,20 @@ public class Player : MonoBehaviour
         var newYPos = Mathf.Clamp(transform.position.y + deltaY * moveSpeed, _minY,_maxY);
 
         transform.position = new Vector2(newXPos, newYPos);
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

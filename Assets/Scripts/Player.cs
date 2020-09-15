@@ -9,13 +9,14 @@ public class Player : MonoBehaviour
     //Limit the ship movement
     [SerializeField] private float xPadding = .1f;
     [SerializeField] private float yPadding = .1f;
-
+    [SerializeField] [Range(0,1)] private float shootVolume;
     [SerializeField] private int health = 200;
     //Speed of shots
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private GameObject laserPrefab = null;
     [SerializeField] private float projectileFiringPeriod = 0.1f;
-
+    [SerializeField] private AudioClip playerShoot;
+    [SerializeField] private AudioClip playerDestroyed;
     private Coroutine firingCoroutine;
     //Clamp Amounts
     private float _minX;
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour
         {
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(playerShoot, Camera.main.transform.position, shootVolume);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
@@ -99,7 +101,7 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            
+            AudioSource.PlayClipAtPoint(playerDestroyed, Camera.main.transform.position);
         }
     }
 }

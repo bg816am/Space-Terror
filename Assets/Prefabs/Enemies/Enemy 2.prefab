@@ -113,8 +113,12 @@ MonoBehaviour:
   shotCounter: 3
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
-  laserPrefab: {fileID: 3916711744697044478, guid: d18483b521d214213ae5010e8cc0f3eb, type: 3}
+  laserPrefab: {fileID: 8661026196215422018, guid: a70ac3c6b350d48a4ab80478e8fcb265, type: 3}
   projectileSpeed: 10
+  enemyShoot: {fileID: 8300000, guid: e6bf3f59245a04f368fcc73b72c51911, type: 3}
+  enemyDestroyed: {fileID: 8300000, guid: 5c1554ecf6ee54d18a01e6ece27b5654, type: 3}
+  explosionVFX: {fileID: 6908338473045932357, guid: 92c3d2df7c57140a3a4b4e6d2bef57b6, type: 3}
+  explosionDuration: 1
 --- !u!58 &3186339142120061182
 CircleCollider2D:
   m_ObjectHideFlags: 0

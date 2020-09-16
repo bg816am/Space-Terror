@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     //Limit the ship movement
     [SerializeField] private float xPadding = .1f;
     [SerializeField] private float yPadding = .1f;
-    [SerializeField] [Range(0,1)] private float shootVolume;
+    [SerializeField] [Range(0,1)] private float shootVolume = 0.5f;
     [SerializeField] private int health = 200;
     //Speed of shots
     [SerializeField] private float projectileSpeed = 10f;
@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float explosionDuration = 1f;
     [SerializeField] private GameObject explosionVFX;
 
-    [SerializeField] [Range(0, 1)] private float explosionVolume;
+    [SerializeField] [Range(0, 1)] private float explosionVolume = 0.5f;
     //Clamp Amounts
     private float _minX;
     private float _maxX;
@@ -87,7 +87,6 @@ public class Player : MonoBehaviour
         // MOve Up and Down
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime;
         var newYPos = Mathf.Clamp(transform.position.y + deltaY * moveSpeed, _minY,_maxY);
-
         transform.position = new Vector2(newXPos, newYPos);
     }
     

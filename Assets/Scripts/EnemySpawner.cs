@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<WaveConfig> _waveConfigs;
-    [SerializeField] private bool looping = false;
-    [SerializeField] int startingWave = 0;
+    [SerializeField] private bool looping;
+    [SerializeField] int startingWave;
     
     // Start is called before the first frame update
     IEnumerator Start()

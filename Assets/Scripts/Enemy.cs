@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField][Range(0,1)] private float enemyLaserVolume = 0.5f;
     [SerializeField] private float explosionDuration = 1f;
     [SerializeField] [Range(0, 1)] private float explosionVolume;
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -15,8 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioClip enemyShoot;
     [SerializeField] private AudioClip enemyDestroyed;
     [SerializeField] private GameObject explosionVFX;
-
+    [SerializeField][Range(0,1)] private float enemyLaserVolume = 0.5f;
     [SerializeField] private float explosionDuration = 1f;
+    [SerializeField] [Range(0, 1)] private float explosionVolume;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,22 +60,19 @@ public class Enemy : MonoBehaviour
             Explode();
         }
     }
-    //TODO: Trigger Enemy explode sound
-    //TODO: Trigger Player Shoot
-    //TODO: Trigger Player Explode
-    
+
     private void Explode()
     {
         Destroy(gameObject);
         GameObject explosion = Instantiate(explosionVFX, transform.position, transform.rotation);
-        AudioSource.PlayClipAtPoint(enemyDestroyed, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(enemyDestroyed, Camera.main.transform.position, explosionVolume);
         Destroy(explosion, explosionDuration);
     }
 
     private void EnemyLaserSound()
     {
         
-        AudioSource.PlayClipAtPoint(enemyShoot, Camera.main.transform.position, 0.5f);
+        AudioSource.PlayClipAtPoint(enemyShoot, Camera.main.transform.position, enemyLaserVolume);
     }
 }
 

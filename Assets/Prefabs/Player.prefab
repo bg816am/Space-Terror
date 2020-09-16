@@ -106,6 +106,9 @@ MonoBehaviour:
   projectileFiringPeriod: 0.1
   playerShoot: {fileID: 8300000, guid: 2e4c94f8903b54c68b59673e4ee1fdf5, type: 3}
   playerDestroyed: {fileID: 8300000, guid: 09a522595ba1747879bbadf40eba6b0f, type: 3}
+  explosionDuration: 1
+  explosionVFX: {fileID: 7003915769488326300, guid: 95aaff1900e0842bba62217b934d576a, type: 3}
+  explosionVolume: 0.462
 --- !u!58 &-3854912881559640661
 CircleCollider2D:
   m_ObjectHideFlags: 0

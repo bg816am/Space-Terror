@@ -17,7 +17,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float projectileFiringPeriod = 0.1f;
     [SerializeField] private AudioClip playerShoot;
     [SerializeField] private AudioClip playerDestroyed;
-    private Coroutine firingCoroutine;
+    private Coroutine _firingCoroutine;
+    [SerializeField] private float explosionDuration = 1f;
+    [SerializeField] private GameObject explosionVFX;
+
+    [SerializeField] [Range(0, 1)] private float explosionVolume;
     //Clamp Amounts
     private float _minX;
     private float _maxX;
@@ -43,12 +47,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-           firingCoroutine = StartCoroutine(FireContinuously());
+           _firingCoroutine = StartCoroutine(FireContinuously());
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
-            StopCoroutine(firingCoroutine);
+            StopCoroutine(_firingCoroutine);
         }
     }
 
@@ -100,8 +104,18 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
-            AudioSource.PlayClipAtPoint(playerDestroyed, Camera.main.transform.position);
+            Explode();
+            FindObjectOfType<Level>().LoadGameOver();
         }
     }
+
+    private void Explode()
+    {
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(explosionVFX, transform.position, transform.rotation);
+        AudioSource.PlayClipAtPoint(playerDestroyed, Camera.main.transform.position, explosionVolume);
+        Destroy(explosion, explosionDuration);
+    }
+    
 }
+

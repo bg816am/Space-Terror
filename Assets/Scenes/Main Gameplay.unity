@@ -9986,7 +9986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b850c4fd760f4786b49701196ddfd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundScrollSpeed: 0.2
+  backgroundScrollSpeed: 0.01
 --- !u!1001 &148173119340721909
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,33 +3,39 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Ship Stats")]
+    [SerializeField] private int health = 200;
     //Configs
     [Header("Movement Parameters")]
     [SerializeField] private float moveSpeed = 10f;
-    //Limit the ship movement
     [SerializeField] private float xPadding = .1f;
     [SerializeField] private float yPadding = .1f;
+    //Limit the ship movement
+    
+    [Header("Audio & Volume Controls")]
+    [SerializeField] [Range(0, 1)] private float explosionVolume = 0.5f;
     [SerializeField] [Range(0,1)] private float shootVolume = 0.5f;
-    [SerializeField] private int health = 200;
+    [SerializeField] private AudioClip playerShoot;
+    [SerializeField] private AudioClip playerDestroyed;
+    
     //Speed of shots
+    [Header("Laser Configuration")]
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private GameObject laserPrefab = null;
     [SerializeField] private float projectileFiringPeriod = 0.1f;
-    [SerializeField] private AudioClip playerShoot;
-    [SerializeField] private AudioClip playerDestroyed;
-    private Coroutine _firingCoroutine;
+    
+    [Header("Special Effects")]
     [SerializeField] private float explosionDuration = 1f;
     [SerializeField] private GameObject explosionVFX;
-
-    [SerializeField] [Range(0, 1)] private float explosionVolume = 0.5f;
+    
+    private Coroutine _firingCoroutine;
+    
     //Clamp Amounts
     private float _minX;
     private float _maxX;
     private float _minY;
     private float _maxY;
-    
-    
-    
+
     // Start is called before the first frame update
     void Start()
     {

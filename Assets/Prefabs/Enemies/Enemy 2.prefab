@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4903526334758972540}
-  - component: {fileID: 5362872446759207260}
-  - component: {fileID: 1240890578637093075}
   - component: {fileID: -910938527685206407}
+  - component: {fileID: 1240890578637093075}
+  - component: {fileID: 5362872446759207260}
   - component: {fileID: 3186339142120061182}
   - component: {fileID: 3697369703426818976}
   - component: {fileID: 2029150752913658115}
@@ -36,6 +36,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-910938527685206407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8939788297966432816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40b99be1d17243159c55425eae773b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  shotCounter: 3
+  minTimeBetweenShots: 0.2
+  maxTimeBetweenShots: 3
+  laserPrefab: {fileID: 8661026196215422018, guid: a70ac3c6b350d48a4ab80478e8fcb265, type: 3}
+  projectileSpeed: 10
+  enemyShoot: {fileID: 8300000, guid: e6bf3f59245a04f368fcc73b72c51911, type: 3}
+  enemyDestroyed: {fileID: 8300000, guid: 5c1554ecf6ee54d18a01e6ece27b5654, type: 3}
+  explosionVFX: {fileID: 6908338473045932357, guid: 92c3d2df7c57140a3a4b4e6d2bef57b6, type: 3}
+  enemyLaserVolume: 0.5
+  explosionDuration: 1
+  explosionVolume: 0.504
+--- !u!114 &1240890578637093075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8939788297966432816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7026bb4652e4ab28c88b552923b343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5362872446759207260
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,42 +123,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1240890578637093075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8939788297966432816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf7026bb4652e4ab28c88b552923b343, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-910938527685206407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8939788297966432816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e40b99be1d17243159c55425eae773b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  shotCounter: 3
-  minTimeBetweenShots: 0.2
-  maxTimeBetweenShots: 3
-  laserPrefab: {fileID: 8661026196215422018, guid: a70ac3c6b350d48a4ab80478e8fcb265, type: 3}
-  projectileSpeed: 10
-  enemyShoot: {fileID: 8300000, guid: e6bf3f59245a04f368fcc73b72c51911, type: 3}
-  enemyDestroyed: {fileID: 8300000, guid: 5c1554ecf6ee54d18a01e6ece27b5654, type: 3}
-  explosionVFX: {fileID: 6908338473045932357, guid: 92c3d2df7c57140a3a4b4e6d2bef57b6, type: 3}
-  enemyLaserVolume: 0.5
-  explosionDuration: 1
-  explosionVolume: 0.504
 --- !u!58 &3186339142120061182
 CircleCollider2D:
   m_ObjectHideFlags: 0

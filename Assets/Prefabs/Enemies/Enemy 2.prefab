@@ -60,6 +60,7 @@ MonoBehaviour:
   enemyLaserVolume: 0.5
   explosionDuration: 1
   explosionVolume: 0.504
+  scoreValue: 20
 --- !u!114 &1240890578637093075
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,19 +3,25 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Enemy Stats")]
     [SerializeField] private float health = 100;
-    [SerializeField] private float shotCounter;
-    [SerializeField] private float minTimeBetweenShots = 0.2f;
-    [SerializeField] private float maxTimeBetweenShots = 3f;
-    [SerializeField] private GameObject laserPrefab;
-    [SerializeField] private float projectileSpeed = 0.1f;
-    [SerializeField] private AudioClip enemyShoot;
+    [SerializeField] private int scoreValue = 20;
+    [Header("Effects")]
     [SerializeField] private AudioClip enemyDestroyed;
     [SerializeField] private GameObject explosionVFX;
     [SerializeField][Range(0,1)] private float enemyLaserVolume = 0.5f;
     [SerializeField] private float explosionDuration = 1f;
     [SerializeField] [Range(0, 1)] private float explosionVolume;
-    [SerializeField] private int scoreValue = 20;
+    [Header("Weapon Stats")]
+    [SerializeField] private float minTimeBetweenShots = 0.2f;
+    [SerializeField] private float maxTimeBetweenShots = 3f;
+    [SerializeField] private GameObject laserPrefab;
+    [SerializeField] private float projectileSpeed = 0.1f;
+    [SerializeField] private AudioClip enemyShoot;
+    
+    
+    private float shotCounter;
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d9910300e424dbb85ce693b1743575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 100
   moveSpeed: 10
   xPadding: 0.5
   yPadding: 0.5

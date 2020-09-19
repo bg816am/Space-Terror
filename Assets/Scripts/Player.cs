@@ -113,6 +113,10 @@ public class Player : MonoBehaviour
             FindObjectOfType<Level>().LoadGameOver();
         }
     }
+    public int GetHealth()
+    {
+        return health;
+    }
 
     private void Explode()
     {
